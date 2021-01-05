@@ -89,6 +89,7 @@ class SvgImage extends Component {
             scrollEnabled={false}
             showsHorizontalScrollIndicator={false}
             showsVerticalScrollIndicator={false}
+            androidHardwareAccelerationDisabled
             source={{ html }}
           />
         </View>
