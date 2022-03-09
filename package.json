@@ -9,9 +9,9 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "react": ">=15",
-    "react-native": ">=0.59 <0.63",
-    "react-native-webview": ">=11.0.2"
+    "react": ">=16",
+    "react-native": ">=0.65 <0.69",
+    "react-native-webview": ">=11.17.2"
   },
   "keywords": [
     "react-native",
