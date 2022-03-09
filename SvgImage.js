@@ -56,8 +56,10 @@ class SvgImage extends Component {
       } else {
         try {
           const res = await fetch(uri);
-          const text = await res.text();
-          this.setState({ fetchingUrl: uri, svgContent: text });
+          if (res) {
+            const text = await res.text();
+            this.setState({ fetchingUrl: uri, svgContent: text });
+          }
         } catch (err) {
           console.error('got error', err);
         }
@@ -73,7 +75,8 @@ class SvgImage extends Component {
       const html = getHTML(svgContent, flattenedStyle);
 
       return (
-        <View pointerEvents="none" style={[props.style, props.containerStyle]}>
+        <View pointerEvents="none" style={[props.style, props.containerStyle]}
+          renderToHardwareTextureAndroid={true}>
           <WebView
             originWhitelist={['*']}
             scalesPageToFit
@@ -91,6 +94,7 @@ class SvgImage extends Component {
             showsVerticalScrollIndicator={false}
             androidHardwareAccelerationDisabled
             source={{ html }}
+            overScrollMode="never"
           />
         </View>
       );
